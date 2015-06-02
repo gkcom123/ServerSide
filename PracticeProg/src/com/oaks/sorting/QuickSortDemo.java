@@ -14,8 +14,9 @@ public class QuickSortDemo {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		//int arr[] = {10, 7, 8, 9, 1, 5};
-		int arr[] = {10, 15, 1, 4, 7, 9};
+		int arr[] = {10, 7, 8, 9, 1, 5};
+		//int arr[] = {10, 15, 1, 4, 7, 9};
+		//int arr[] = {14, 15, 4, 2, 1, 0};
 		
 	    QuickSortDemo qDemo = new QuickSortDemo();
 	    qDemo.quickSort(arr, 0, arr.length-1);
@@ -31,12 +32,12 @@ public class QuickSortDemo {
 	/* This function takes last element as pivot, places the pivot element at its
 	   correct position in sorted array, and places all smaller (smaller than pivot)
 	   to left of pivot and all greater elements to right of pivot */
-	private int partition (int arr[], int l, int h)
+	private int partition (int arr[], int start, int end)
 	{
-	    int x = arr[h];    // pivot, its last element
-	    int i = (l - 1);  // Index of smaller element
+	    int x = arr[end];    // pivot, its last element
+	    int i = (start - 1);  // Index of smaller element
 	 
-	    for (int j = l; j <= h- 1; j++)
+	    for (int j = start; j <= end- 1; j++)
 	    {
 	        // If current element is smaller than or equal to pivot 
 	        if (arr[j] <= x)
@@ -45,7 +46,7 @@ public class QuickSortDemo {
 	            swap(arr,i, j);  // Swap current element with index
 	        }
 	    }
-	    swap(arr,i + 1,h);  
+	    swap(arr,i + 1,end);  
 	    return (i + 1);
 	}
 	private void quickSort(int arr[], int l, int h)
